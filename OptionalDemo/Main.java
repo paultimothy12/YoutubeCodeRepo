@@ -87,6 +87,9 @@ public class Main {
         //If value is present inside the container, it returns the value or custom Exception - Supplier
         System.out.println(nameOptional3.orElseThrow(()->new RuntimeException("Empty")));
 //        System.out.println(nameOptional4.orElseThrow(()->new RuntimeException("Empty Exception")));
-
+        System.out.println(Main.getDetails(Optional.of(null)));
+    }
+    static Optional<String> getDetails(Optional<Integer> age){
+        return Optional.ofNullable("I'm Paul and my age is "+age.orElseThrow());
     }
 }
