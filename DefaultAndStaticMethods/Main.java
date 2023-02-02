@@ -1,6 +1,5 @@
 package com.timothy.DefaultAndStaticMethods;
 
-//@FunctionalInterface
 interface InterfaceDemo{
     //Abstract Methods
     void AbstractMethod1(String s);
