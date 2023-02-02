@@ -61,11 +61,11 @@ public class SinglyLinkedList {
         for (int i=1;i<index;i++){
             curNode =curNode.next;
         }
-        Node delNode =curNode.next;
+        Node temp =curNode.next;
         Node newNode = new Node(val);
 
         curNode.next=newNode;
-        newNode.next=delNode.next;
+        newNode.next=temp;
 
         size++;
     }
