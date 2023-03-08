@@ -1,11 +1,8 @@
 package com.timothy.RestAPI.RestAPI;
 
-
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -18,7 +15,12 @@ public class JobEntryJpaResource {
         this.jobEntryRepository = jobEntryRepository;
     }
 
-    @GetMapping("jobs/all")
+    @GetMapping("/")
+    public String startPage(){
+        return "Success";
+    }
+
+    @GetMapping("jobs/view/all")
     public List<JobEntry> retrieveAll() {
         return jobEntryRepository.findAll();
     }
@@ -44,15 +46,17 @@ public class JobEntryJpaResource {
         return jobEntry;
     }
 
-    @PostMapping("jobs/new")
+    @PostMapping("jobs/create/new")
     public void createNewJob(@RequestBody JobEntry jobEntry) {
-        int id = jobEntry.getId();
-        if(jobEntryRepository.findAll().stream().anyMatch(jobEntry1 -> jobEntry1.getId()==id)){
+        int newId = jobEntry.getId();
+        if(jobEntryRepository.findAll().stream().anyMatch(jobEntry1 -> jobEntry1.getId()==newId)){
             log.info("<============Job Id is already Present - Entry Omitted!!!============>");
+            log.info("Existing Job IDs ->"+jobEntryRepository.findAll().stream().map(JobEntry::getId).toList().toString());
             return;
         }
         jobEntryRepository.save(jobEntry);
     }
 
 }
+
 
