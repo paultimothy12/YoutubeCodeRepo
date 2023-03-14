@@ -1,0 +1,5 @@
+1.Registering error page in WebConfig
+2.Add mappings and viewName constants
+3.Add @GetMapping controller method for error page
+4.Add @SpringBootApplication(exclude = SqlInitializationAutoConfiguration.class) in our main application to skip adding dummy data
+5.Remove data.sql
