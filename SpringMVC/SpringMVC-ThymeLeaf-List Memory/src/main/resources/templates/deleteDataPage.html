@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DELETE DATA PAGE</title>
+</head>
+<body>
+    <div align="center">
+
+        <h3>DELETE DATA</h3>
+        <br>
+        <form action="deleteDataPage" method="post">
+          <label for="serialIN">Enter Serial Number</label>
+          <input id="serialIN" type="number" name="serialNumberName">
+          <input type="submit" value="Submit">
+        </form>
+        <br>
+
+  <a th:text="AddData" th:href="addDataPage" >replaced</a><br>
+  <a th:text="EditData" th:href="editDataPage">replaced</a><br>
+  <a th:text="ViewData" th:href="viewDataPage" >replaced</a><br>
+
+</div>
+</body>
+</html>

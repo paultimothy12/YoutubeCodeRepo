@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIEW DATA PAGE</title>
+</head>
+<body>
+    <div align="center">
+
+
+        <table border="1" cellpadding="5">
+            <caption><h2>TestDataList</h2></caption>
+            <tr>
+                <th>serialNumber</th>
+                <th>content</th>
+            </tr>
+
+            <tr th:each="testData: ${testDatabase.getTestDataList()}">
+                <td th:text="${testData.serialNumber}" />
+                <td th:text="${testData.content}" />
+            </tr>
+        </table>
+        <br>
+
+        <a th:text="AddData" th:href="addDataPage" >replaced</a><br>
+        <a th:text="EditData" th:href="editDataPage">replaced</a><br>
+        <a th:text="DeleteData" th:href="deleteDataPage"> replaced</a><br>
+
+    </div>
+</body>
+</html>
